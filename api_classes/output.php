@@ -1,5 +1,6 @@
 <?php
 class Output {
+    protected $_debug;
     protected $_data;
     protected $_title;
     protected $_template;
@@ -38,6 +39,11 @@ class Output {
         
         if ($this->_template) {
             $app->render($this->_template, $output);
+            if ($this->_debug) {
+                print '<pre>';
+                print_r($output);
+                print '</pre>';
+            }
         }
         else {
             print '<pre>';

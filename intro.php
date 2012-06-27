@@ -46,13 +46,13 @@
             </p>
           </td>
         </tr><tr>
-          <td>/tri/[from nth]/to/[to nth]</td>
+          <td>/tri/[from nth]/[to nth]</td>
           <td>
             <p>List the triangular numbers within the specified range.</p>
 
             <span class="label label-info">Examples</span>
             <p class="examples">
-              <a href="/tri/3/to/5">http://api.arithmophile.com/tri/3/to/5</a> - <span class="explanation">Returns triangular numbers 6, 10, 15.</span><br/>
+              <a href="/tri/3/5">http://api.arithmophile.com/tri/3/5</a> - <span class="explanation">Returns triangular numbers 6, 10, 15.</span><br/>
             </p>
           </td>
         </tr><tr>
@@ -92,13 +92,35 @@
           <th colspan="2">Prime Numbers</th>
         </tr><tr>
           <td>/p/upto/[maximum]</td>
-          <td>Returns a list of the prime numbers less than or equal to specified maximum.</td>
+          <td>
+            <p>Returns a list of the prime numbers less than or equal to specified maximum.</p>
+
+            <span class="label label-info">Examples</span>
+            <p class="examples">
+              <a href="/p/upto/100">http://api.arithmophile.com/p/upto/100</a> <span class="explanation">Returns the prime numbers less than or equal to 100.</span><br/>
+            </p>
+          </td>
         </tr><tr>
           <td>/p/[between a]/[and b]</td>
-          <td>Returns a list of the prime numbers between the two specified.</td>
+          <td>
+            <p>Returns a list of the prime numbers between the two specified.</p>
+
+            <span class="label label-info">Examples</span>
+            <p class="examples">
+              <a href="/p/10/20">http://api.arithmophile.com/p/10/20</a> <span class="explanation">Returns the prime numbers between 10 an 20, which are 11, 13, 17, 19.</span><br/>
+            </p>
+          </td>
         </tr><tr>
           <td>/p/[number]</td>
-          <td>Indicate whether the number is prime.  Return its factors if composite.</td>
+          <td>
+            <p>Indicate whether the number is prime.  Return its factors if composite.</p>
+
+            <span class="label label-info">Examples</span>
+            <p class="examples">
+              <a href="/p/5">http://api.arithmophile.com/p/10</a> <span class="explanation">Returns 2 and 5 as the prime factors of 10.</span><br/>
+              <a href="/p/5">http://api.arithmophile.com/p/5</a> <span class="explanation">Indicates that 5 is a prime number.</span><br/>
+            </p>
+          </td>
         </tr>
       </table>
 

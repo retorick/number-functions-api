@@ -11,6 +11,8 @@ class Prime extends Output {
     public function showPrimesFromTo($from, $to)
     {
         $this->_data = $this->_list_primes_from_to($from, $to);
+        $this->_title = 'Prime Numbers';
+        $this->_template = 'prime_numbers.html';
     }
 
     public function isPrime($n)
@@ -26,6 +28,8 @@ class Prime extends Output {
                 'prime_factors' => $factors,
             );
         }
+        $this->_title = 'Prime Factors';
+        $this->_template = 'is_prime.html';
         $this->_data = $data;
     }
 
@@ -49,10 +53,10 @@ class Prime extends Output {
         $list = array('primes_listed' => 0);
         foreach ($this->_primes as $ndx => $p) {
             if ($p >= $from and $p <= $to) {
-                $list[$ndx + 1] = $p; 
+                $list['prime_numbers'][$ndx + 1] = $p; 
             }
         }
-        $list['primes_listed'] = sizeof($list) - 1;
+        $list['primes_listed'] = sizeof($list['prime_numbers']);
         return $list;
     }
 }

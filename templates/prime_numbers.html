@@ -1,19 +1,21 @@
 {% extends 'layout.html' %}
 
 {% block content %}
+<p>Number of primes in list: {{ primes_listed }}</p>
+
 <table class="table table-striped">
   <tr>
     <th><em>n</em></th>
-    <th>nth Triangular</th>
+    <th>nth Prime number</th>
   </tr>
-{% for key, t in triangular_list %}
+{% for key, prime in prime_numbers %}
   <tr>
     <td>{{ key }}</td>
-    <td>{{ t }}</td>
+    <td>{{ prime }}</td>
   </tr>
 {% else %}
   <tr>
-    <td colspan="2">Nothing in list</td>
+    <td colspan="2">Nothing listed</td>
   </tr>
 {% endfor %}
 </table>

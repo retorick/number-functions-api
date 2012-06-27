@@ -15,6 +15,7 @@ $app->get('/dc/:denom(/:num)',  '\ArithmophileAPI\dc_denom_num')    ->conditions
 
 // Triangular numbers
 $app->get('/tri/upto/:max',     '\ArithmophileAPI\tri_upto')        ->conditions(array('max' => '\d+'));
+$app->get('/tri/:from/:to',     '\ArithmophileAPI\tri_from_to')     ->conditions(array('from' => '\d+', 'to' => '\d+'));
 $app->get('/tri/:from/to/:to',  '\ArithmophileAPI\tri_from_to')     ->conditions(array('from' => '\d+', 'to' => '\d+'));
 $app->get('/tri/test/:num',     '\ArithmophileAPI\tri_test')        ->conditions(array('num' => '\d+'));
 $app->get('/tri/sq/upto/:max',  '\ArithmophileAPI\tri_square_upto') ->conditions(array('max' => '\d+'));

@@ -104,11 +104,11 @@ function primes_upto($max)
     }
 }
 
-function primes_from_to($from, $to) 
+function primes_from_to($from, $to, $debug = null) 
 {
     try {
         require 'api_classes/prime.php';
-        $primeObj = new \Prime();
+        $primeObj = new \Prime($debug);
         $primeObj->showPrimesFromTo($from, $to);
         $primeObj->output();
     }

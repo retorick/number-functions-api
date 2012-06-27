@@ -1,0 +1,11 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<p>Prime factors:
+{% for prime in prime_factors %}
+{{ prime }}
+{% else %}
+The number is prime
+{% endfor %}
+</p>
+{% endblock %}
