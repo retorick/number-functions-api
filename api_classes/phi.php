@@ -7,6 +7,9 @@ class Phi extends Output {
 
     public function __construct()
     {
+        $this->_template = null;
+        $this->_title = 'Phi';
+
         require 'pascal.php';
         require 'phidigits.php';
         $this->_phi = $phi;
@@ -17,8 +20,13 @@ class Phi extends Output {
     public function phiDigits($max = 100)
     {
         $data = substr($this->_phi, 0, $max);
-        $this->_data = $this->_group($data, 50, $max);
-        array_unshift($this->_data, '1.');
+        $this->_data = array(
+            'digits' => $max,
+            'phi_digits' => $this->_group($data, 10, $max)
+        );
+//        array_unshift($this->_data, '1.');
+        $this->_template = 'phi_digits.html';
+        $this->_title = 'Phi Digits'; 
     }
 
 
@@ -28,7 +36,9 @@ class Phi extends Output {
         for ($p = 0; $p <= $power; $p++) {
             $data[$p] = $this->_get_phi_power($p);
         }
-        $this->_data = $data;
+        $this->_data['phi_powers'] = $data;
+        $this->_title = 'Powers of Phi';
+        $this->_template = 'phi_powers.html';
     }
 
     private function _get_phi_power($p)
@@ -52,17 +62,17 @@ class Phi extends Output {
         return array(
             'power' => $p,
             'phi_num' => "($root&radic;5 + $whole) / 2",
+            'real_value' => pow((pow(5, .5) + 1)/2, $p),
             'sqrt_5' => $root,
             'whole' => $whole,
             'denom' => $denominator,
         );
     }
 
-    private function _group($data, $chunk_size, $max) 
+    private function _group($data, $chunk_size = 10, $max) 
     {
         $groups = array();
-        $grouped_data = rtrim(chunk_split($data, $chunk_size, '|'), '|');
-        $groups = explode('|', $grouped_data);
-        return $groups;
+        $grouped_data = rtrim(chunk_split($data, $chunk_size, ' '));
+        return $grouped_data;
     }
 }

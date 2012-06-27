@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<table class="table table-striped">
+  <tr>
+    <th>Fraction</th>
+    <th>Period</th>
+    <th>Period Length</th>
+    <th>Repeating Digits</th>
+  </tr>
+{% for row in decimal_table %}
+  <tr>
+    <td>{{ row.fraction }}</td>
+    <td>{{ row.decimal }}</td>
+    <td>{{ row.length }}</td>
+    <td>{{ row.repeating }}</td>
+  </tr>
+{% else %}
+  <tr>
+    <td>No decimals provided.</td>
+  </tr>
+{% endfor %}
+</table>
+
+{% endblock %}

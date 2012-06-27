@@ -1,8 +1,12 @@
 <?php
 require 'Slim/Slim.php';
+require 'Slim/View.php';
 require 'api_functions/functions.php';
+require 'Slim-Extras/Views/TwigView.php';
 
-$app = new Slim();
+$app = new Slim(array(
+    'view' => new TwigView()
+    ));
 
 $app->get('/', function() use ($app) { $app->redirect('/intro.php'); } );
 

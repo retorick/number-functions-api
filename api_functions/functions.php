@@ -24,6 +24,7 @@ function tri_upto($max)
         require 'api_classes/triangular.php';
         $triObj = new \Triangular();
         $triObj->getTriangularsFromTo(1, $max);
+
         $triObj->output();
     }
     catch (\Exception $e) {

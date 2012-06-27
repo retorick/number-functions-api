@@ -11,15 +11,21 @@ class DecimalData extends Output {
         $decObj = new DecimalCollection($denom, $num, 10);
         $data = array();
         foreach ($decObj->fraction as $fraction) {
-            array_push($data, array(
+            $data['decimal_table'][] = array(
                     'fraction' => $fraction->fraction,
                     'decimal' => $fraction->period,
                     'length' => $fraction->period_length,
                     'repeating' => $fraction->repeating,
-                )
-            );
+                );
         }
         $this->_data = $data;
+    }
+
+    public function output()
+    {
+        global $app;
+
+        $app->render('decimal.html', array_merge(array('title' => 'Decimal Calculator'), $this->_data));
     }
 }
 ?>

@@ -1,8 +1,16 @@
 <?php
 class Output {
     protected $_data;
+    protected $_title;
+    protected $_template;
 
-    public function output($outmode = 'text')
+    public function __construct()
+    {
+        $this->_title = 'Another Avocational Arithmophile Adventure';
+        $this->_template = null;
+    }
+
+    public function output()
     {
         $host = $_SERVER['HTTP_HOST'];
         $outmode = substr($host, 0, strpos($host, '.'));
@@ -25,11 +33,17 @@ class Output {
 
     private function _output_default()
     {
-        $output = $this->_data;
+        global $app;
+        $output = array_merge(array('title' => $this->_title), $this->_data);
         
-        print '<pre>';
-        print_r($output);
-        print '</pre>';
+        if ($this->_template) {
+            $app->render($this->_template, $output);
+        }
+        else {
+            print '<pre>';
+            print_r($output);
+            print '</pre>';
+        }
     }
 }
 

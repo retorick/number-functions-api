@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<table class="table table-striped">
+{% for key, t in triangular_list %}
+  <tr>
+    <td>{{ key }}</td>
+    <td>{{ t }}</td>
+  </tr>
+{% else %}
+  <tr>
+    <td colspan="2">Nothing in list</td>
+  </tr>
+{% endfor %}
+</table>
+{% endblock %}

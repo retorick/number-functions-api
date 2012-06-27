@@ -2,8 +2,13 @@
 require 'output.php';
 
 class Triangular extends Output {
+    private $template = null;
+    private $title = null;
+
     public function __construct()
     {
+        $this->_template = null;
+        $this->_title = 'Triangular Numbers';
     }
 
     public function isTriangular($n)
@@ -23,6 +28,8 @@ class Triangular extends Output {
             );
         }
         $this->_data = $data;
+        $this->_title = 'Triangular Test';
+        $this->_template = 'is_triangular.html';
     }
 
     public function getTriangularSquaresUpTo($max)
@@ -45,11 +52,29 @@ class Triangular extends Output {
     {
         $tri = array();
         for ($i = $from; $i <= $to; $i++) {
-            $tri[$i] = $this->_nth_triangular($i);
+            $tri['triangular_list'][$i] = $this->_nth_triangular($i);
         }
+        $this->_template = 'triangular_range.html';
         $this->_data = $tri;
     }
 
+
+    public function output()
+    {
+        global $app;
+
+        if ($this->_template) {
+/*
+print '<pre>';
+print_r($this->_data);
+print '</pre>';
+*/
+            $app->render($this->_template, array_merge(array('title' => $this->_title), $this->_data));
+        }
+        else {
+            parent::output();
+        }
+    }
 
     private function _nth_triangular($nth)
     {

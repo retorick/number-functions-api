@@ -29,8 +29,8 @@
            
             <span class="label label-info">Examples</span>
             <p class="examples">
-              http://api.arithmophile.com/dc/7 - <span class="explanation">returns decimals having a denominator of 7.</span><br/>
-              http://api.arithmophile.com/dc/49/5 - <span class="explanation">returns decimal for fraction 5/49.</span><br/>
+              <a href="/dc/7">http://api.arithmophile.com/dc/7</a> - <span class="explanation">Returns decimals having a denominator of 7.</span><br/>
+              <a href="/dc/49/5">http://api.arithmophile.com/dc/49/5</a> - <span class="explanation">Returns decimal for fraction 5/49.</span><br/>
             </p>
           </td>
         </tr><tr>
@@ -42,7 +42,7 @@
 
             <span class="label label-info">Examples</span>
             <p class="examples">
-              http://api.arithmophile.com/tri/upto/5 - <span class="explanation">returns triangular numbers 1, 3, 6, 10, 15.</span><br/>
+              <a href="/tri/upto/5">http://api.arithmophile.com/tri/upto/5</a> - <span class="explanation">Returns triangular numbers 1, 3, 6, 10, 15.</span><br/>
             </p>
           </td>
         </tr><tr>
@@ -52,7 +52,7 @@
 
             <span class="label label-info">Examples</span>
             <p class="examples">
-              http://api.arithmophile.com/tri/3/to/5 - <span class="explanation">returns triangular numbers 6, 10, 15.</span><br/>
+              <a href="/tri/3/to/5">http://api.arithmophile.com/tri/3/to/5</a> - <span class="explanation">Returns triangular numbers 6, 10, 15.</span><br/>
             </p>
           </td>
         </tr><tr>
@@ -62,18 +62,32 @@
 
             <span class="label label-info">Examples</span>
             <p class="examples">
-              http://api.arithmophile.com/tri/test/10 <span class="explanation"></span><br/>
-              http://api.arithmophile.com/tri/test/12 <span class="explanation"></span><br/>
+              <a href="/tri/test/10">http://api.arithmophile.com/tri/test/10</a> <span class="explanation"></span><br/>
+              <a href="/tri/test/12">http://api.arithmophile.com/tri/test/12</a> <span class="explanation"></span><br/>
             </p>
           </td>
         </tr><tr>
           <th colspan="2">Golden Ratio (phi)</th>
         </tr><tr>
           <td>/phi/[number of digits]</td>
-          <td>Returns the number phi, to the specified number of places after the decimal.</td>
+          <td>
+            <p>Returns the number phi, to the specified number of places after the decimal.</p>
+
+            <span class="label label-info">Examples</span>
+            <p class="examples">
+              <a href="/phi/100">http://api.arithmophile.com/phi/100</a> <span class="explanation">Returns phi to 100 decimal places.</span><br/>
+            </p>
+          </td>
         </tr><tr>
           <td>/phi/powers(/[maximum power])</td>
-          <td>Returns the powers of phi, up to the indicated maximum.</td>
+          <td>
+            <p>Returns the powers of phi, up to the indicated maximum.</p>
+
+            <span class="label label-info">Examples</span>
+            <p class="examples">
+              <a href="/phi/powers/5">http://api.arithmophile.com/phi/powers/5</a> <span class="explanation">Returns the powers of phi, up to phi^5.</span><br/>
+            </p>
+          </td>
         </tr><tr>
           <th colspan="2">Prime Numbers</th>
         </tr><tr>

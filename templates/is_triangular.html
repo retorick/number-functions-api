@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<table class="table table-striped">
+  <tr>
+    <th>N</th>
+    <th>Is Triangular?</th>
+    <th>Which?</th>
+  </tr>
+  <tr>
+    <td>{{ number }}</td>
+    <td>{{ is_triangular }}</td>
+    <td>{{ nth_triangular_number }}</td>
+  </tr>
+</table>
+{% endblock %}

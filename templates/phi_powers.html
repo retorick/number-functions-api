@@ -1,0 +1,24 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<table class="table table-striped">
+  <tr>
+    <th>Exponent</th>
+    <th>Power of Phi</th>
+    <th>Real Value</th>
+  </tr>
+  {% for exponent, phi in phi_powers %}
+  <tr>
+    <td>{{ exponent }}</td>
+    {% autoescape false %}
+    <td>{{ phi.phi_num }}</td>
+    {% endautoescape %}
+    <td>{{ phi.real_value }}</td>
+  </tr>
+  {% else %}
+  <tr>
+    <td colspan="3">Nothing to list</td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}
