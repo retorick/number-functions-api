@@ -1,5 +1,5 @@
 <?php
-require 'output.php';
+require 'classes/output.php';
 
 class Triangular extends Output {
     private $template = null;
@@ -58,23 +58,6 @@ class Triangular extends Output {
         $this->_data = $tri;
     }
 
-
-    public function output()
-    {
-        global $app;
-
-        if ($this->_template) {
-/*
-print '<pre>';
-print_r($this->_data);
-print '</pre>';
-*/
-            $app->render($this->_template, array_merge(array('title' => $this->_title), $this->_data));
-        }
-        else {
-            parent::output();
-        }
-    }
 
     private function _nth_triangular($nth)
     {

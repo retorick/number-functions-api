@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:fb="http://ogp.me/ns/fb#">
 <head>
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
+  <link rel="icon" href="/favicon.ico" type="image/x-icon"/>
   <meta charset="UTF-8"/>
   <meta property="og:site_name" content="API for Arithmophiles" />
   <meta property="og:description" content="Allow number-related inquiries, primarily of interest to geeks, using just a URL." />
@@ -13,6 +15,7 @@
   <link rel="stylesheet" href="/bootstrap/css/bootstrap.css"/>
   <script type="text/javascript" src="/jstools/jquery-1.7.2.min.js"></script>
   <script type="text/javascript" src="/bootstrap/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="/bootstrap/js/bootstrap-collapse.js"></script>
   <style type="text/css">
     body { margin-top:20px; }
     h1 { text-shadow:1px 1px 2px gray; }
@@ -65,141 +68,137 @@
   <div class="row">
     <div class="span9">
 
-      <table class="table table-bordered">
-        <tr>
-          <th>Decimal Calculator</th>
-        </tr><tr>
-          <td class="usage">http://api.arithmophile.com/dc/[denominator](/[numerator])</td>
-        </tr><tr>
-          <td>
-            <p class="desc">Specify denominator and optional numerator</p>
-          </td>
-        </tr><tr>
-          <td class="examples">
-            <span class="label label-info">Examples</span>
-            <ul>
-              <li><a href="/dc/7">http://api.arithmophile.com/dc/7</a> - <span class="explanation">Returns decimals having a denominator of 7.</span></li>
-              <li><a href="/dc/49/5">http://api.arithmophile.com/dc/49/5</a> - <span class="explanation">Returns decimal for fraction 5/49.</span></li>
-            </ul>
-          </td>
-        </tr><tr>
-          <th>Triangular Numbers</th>
-        </tr><tr>
-          <td class="usage">http://api.arithmophile.com/tri/upto/[nth]</td>
-        </tr><tr>
-          <td>
-            <p class="desc">List the triangular numbers, up to the nth.  (e.g., If nth is 3, list includes 1, 3, 6.)</p>
-          </td>
-        </tr><tr>
-          <td class="examples">
-            <span class="label label-info">Examples</span>
-            <ul>
-              <li><a href="/tri/upto/5">http://api.arithmophile.com/tri/upto/5</a> - <span class="explanation">Returns triangular numbers 1, 3, 6, 10, 15.</span></li>
-            </ul>
-          </td>
-        </tr><tr>
-          <td class="usage">http://api.arithmophile.com/tri/[from nth]/[to nth]</td>
-        </tr><tr>
-          <td>
-            <p class="desc">List the triangular numbers within the specified range.</p>
-          </td>
-        </tr><tr>
-          <td class="examples">
-            <span class="label label-info">Examples</span>
-            <ul>
-              <li><a href="/tri/3/5">http://api.arithmophile.com/tri/3/5</a> - <span class="explanation">Returns triangular numbers 6, 10, 15.</span></li>
-            </ul>
-          </td>
-        </tr><tr>
-          <td class="usage">http://api.arithmophile.com/tri/test/[number]</td>
-        </tr><tr>
-          <td>
-            <p class="desc">Check the specified number to determine whether it is triangular.</p>
-          </td>
-        </tr><tr>
-          <td class="examples">
-            <span class="label label-info">Examples</span>
-            <ul>
-              <li><a href="/tri/test/10">http://api.arithmophile.com/tri/test/10</a> <span class="explanation"></span></li>
-              <li><a href="/tri/test/12">http://api.arithmophile.com/tri/test/12</a> <span class="explanation"></span></li>
-            </ul>
-          </td>
-        </tr><tr>
-          <th>Golden Ratio (phi)</th>
-        </tr><tr>
-          <td class="usage">http://api.arithmophile.com/phi/[number of digits]</td>
-        </tr><tr>
-          <td>
-            <p class="desc">Returns the number phi, to the specified number of places after the decimal.</p>
-          </td>
-        </tr><tr>
-          <td class="examples">
-            <span class="label label-info">Examples</span>
-            <ul>
-              <li><a href="/phi/100">http://api.arithmophile.com/phi/100</a> <span class="explanation">Returns phi to 100 decimal places.</span></li>
-            </ul>
-          </td>
-        </tr><tr>
-          <td class="usage">http://api.arithmophile.com/phi/powers(/[maximum power])</td>
-        </tr><tr>
-          <td>
-            <p class="desc">Returns the powers of phi, up to the indicated maximum.</p>
-          </td>
-        </tr><tr>
-          <td class="examples">
-            <span class="label label-info">Examples</span>
-            <ul>
-              <li><a href="/phi/powers/5">http://api.arithmophile.com/phi/powers/5</a> <span class="explanation">Returns the powers of phi, up to phi^5.</span></li>
-            </ul>
-          </td>
-        </tr><tr>
-          <th>Prime Numbers</th>
-        </tr><tr>
-          <td class="usage">http://api.arithmophile.com/p/upto/[maximum]</td>
-        </tr><tr>
-          <td>
-            <p class="desc">Returns a list of the prime numbers less than or equal to specified maximum.</p>
-          </td>
-        </tr><tr>
-          <td class="examples">
-            <span class="label label-info">Examples</span>
-            <ul>
-              <li><a href="/p/upto/100">http://api.arithmophile.com/p/upto/100</a> <span class="explanation">Returns the prime numbers less than or equal to 100.</span></li>
-            </ul>
-          </td>
-        </tr><tr>
-          <td class="usage">http://api.arithmophile.com/p/[between a]/[and b]</td>
-        </tr><tr>
-          <td>
-            <p class="desc">Returns a list of the prime numbers between the two specified.</p>
-          </td>
-        </tr><tr>
-          <td class="examples">
-            <span class="label label-info">Examples</span>
-            <ul>
-              <li><a href="/p/10/20">http://api.arithmophile.com/p/10/20</a> <span class="explanation">Returns the prime numbers between 10 an 20, which are 11, 13, 17, 19.</span></li>
-            </ul>
-          </td>
-        </tr><tr>
-          <td class="usage">http://api.arithmophile.com/p/[number]</td>
-        </tr><tr>
-          <td>
-            <p class="desc">Indicate whether the number is prime.  Return its factors if composite.</p>
-          </td>
-        </tr><tr>
-          <td class="examples">
-            <span class="label label-info">Examples</span>
-            <ul>
-              <li><a href="/p/5">http://api.arithmophile.com/p/10</a> <span class="explanation">Returns 2 and 5 as the prime factors of 10.</span></li>
-              <li><a href="/p/5">http://api.arithmophile.com/p/5</a> <span class="explanation">Indicates that 5 is a prime number.</span></li>
-            </ul>
-          </td>
-        </tr>
-      </table>
+      <div id="api-functions" class="accordion">
+        <!-- Decimal Calculator group -->
+        <div class="accordion-group">
+          <div class="accordion-heading">
+            <a href="#fn-dc" class="accordion-toggle" data-parent="#api-functions" data-toggle="collapse">Decimal Calculator</a>
+          </div>
+          <div id="fn-dc" class="accordion-body collapse">
+            <div class="accordion-inner">
+              <p class="usage">http://api.arithmophile.com/dc/[denominator](/[numerator])</p>
+              <p class="desc">Specify denominator and optional numerator</p>
+              <div class="examples">
+                <span class="label label-info">Examples</span>
+                <ul>
+                  <li><a href="/dc/7">http://api.arithmophile.com/dc/7</a> - <span class="explanation">Returns decimals having a denominator of 7.</span></li>
+                  <li><a href="/dc/49/5">http://api.arithmophile.com/dc/49/5</a> - <span class="explanation">Returns decimal for fraction 5/49.</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Triangular Numbers group -->
+        <div class="accordion-group">
+          <div class="accordion-heading">
+            <a class="accordion-toggle" href="#fn-tri" data-parent="#api-functions" data-toggle="collapse">Triangular Numbers</a>
+          </div>
+          <div id="fn-tri" class="accordion-body collapse">
+            <div class="accordion-inner">
+              <p class="usage">http://api.arithmophile.com/tri/upto/[nth]</p>
+              <p class="desc">List the triangular numbers, up to the nth.  (e.g., If nth is 3, list includes 1, 3, 6.)</p>
+              <div class="examples">
+                <span class="label label-info">Examples</span>
+                <ul>
+                  <li><a href="/tri/upto/5">http://api.arithmophile.com/tri/upto/5</a> - <span class="explanation">Returns triangular numbers 1, 3, 6, 10, 15.</span></li>
+                </ul>
+              </div>
+
+              <p class="usage">http://api.arithmophile.com/tri/[from nth]/[to nth]</p>
+              <p class="desc">List the triangular numbers within the specified range.</p>
+              <div class="examples">
+                <span class="label label-info">Examples</span>
+                <ul>
+                  <li><a href="/tri/3/5">http://api.arithmophile.com/tri/3/5</a> - <span class="explanation">Returns triangular numbers 6, 10, 15.</span></li>
+                </ul>
+              </div>
+
+              <p class="usage">http://api.arithmophile.com/tri/test/[number]</p>
+              <p class="desc">Check the specified number to determine whether it is triangular.</p>
+              <div class="examples">
+                <span class="label label-info">Examples</span>
+                <ul>
+                  <li><a href="/tri/test/10">http://api.arithmophile.com/tri/test/10</a> <span class="explanation"></span></li>
+                  <li><a href="/tri/test/12">http://api.arithmophile.com/tri/test/12</a> <span class="explanation"></span></li>
+                </ul>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- Golden Ratio group -->
+        <div class="accordion-group">
+          <div class="accordion-heading">
+            <a class="accordion-toggle" href="#fn-phi" data-parent="#api-functions" data-toggle="collapse">Golden Ratio</a>
+          </div>
+          <div id="fn-phi" class="accordion-body collapse">
+            <div class="accordion-inner">
+              <p class="usage">http://api.arithmophile.com/phi/[number of digits]</p>
+              <p class="desc">Returns the number phi, to the specified number of places after the decimal.</p>
+              <div class="examples">
+                <span class="label label-info">Examples</span>
+                <ul>
+                  <li><a href="/phi/100">http://api.arithmophile.com/phi/100</a> <span class="explanation">Returns phi to 100 decimal places.</span></li>
+                </ul>
+              </div>
+
+              <p class="usage">http://api.arithmophile.com/phi/powers(/[maximum power])</p>
+              <p class="desc">Returns the powers of phi, up to the indicated maximum.</p>
+              <div class="examples">
+                <span class="label label-info">Examples</span>
+                <ul>
+                  <li><a href="/phi/powers/5">http://api.arithmophile.com/phi/powers/5</a> <span class="explanation">Returns the powers of phi, up to phi^5.</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Prime Numbers group -->
+        <div class="accordion-group">
+          <div class="accordion-heading">
+            <a class="accordion-toggle" href="#fn-prime" data-parent="#api-functions" data-toggle="collapse">Prime Numbers</a>
+          </div>
+          <div id="fn-prime" class="accordion-body collapse">
+            <div class="accordion-inner">
+              <p class="usage">http://api.arithmophile.com/p/upto/[maximum]</p>
+              <p class="desc">Returns a list of the prime numbers less than or equal to specified maximum.</p>
+              <div class="examples">
+                <span class="label label-info">Examples</span>
+                <ul>
+                  <li><a href="/p/upto/100">http://api.arithmophile.com/p/upto/100</a> <span class="explanation">Returns the prime numbers less than or equal to 100.</span></li>
+                </ul>
+              </div>
+
+              <p class="usage">http://api.arithmophile.com/p/[between a]/[and b]</p>
+              <p class="desc">Returns a list of the prime numbers between the two specified.</p>
+              <div class="examples">
+                <span class="label label-info">Examples</span>
+                <ul>
+                  <li><a href="/p/10/20">http://api.arithmophile.com/p/10/20</a> <span class="explanation">Returns the prime numbers between 10 an 20, which are 11, 13, 17, 19.</span></li>
+                </ul>
+              </div>
+
+              <p class="usage">http://api.arithmophile.com/p/[number]</p>
+              <p class="desc">Indicate whether the number is prime.  Return its factors if composite.</p>
+              <div class="examples">
+                <span class="label label-info">Examples</span>
+                <ul>
+                  <li><a href="/p/5">http://api.arithmophile.com/p/10</a> <span class="explanation">Returns 2 and 5 as the prime factors of 10.</span></li>
+                  <li><a href="/p/5">http://api.arithmophile.com/p/5</a> <span class="explanation">Indicates that 5 is a prime number.</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
     </div>
     <div class="span3">
-      <p>A playful project by <a href="http://www.twitter.com/retorick">retorick</a></p>
+      <p>A playful project by <a href="http://www.twitter.com/retorick">retorick</a>.  Built using the <a href="http://www.slimframework.com">Slim micro-framework</a>, the <a href="http://twig.sensiolabs.org/">TwigView</a> templating engine, and <a href="http://twitter.github.com/bootstrap/">Bootstrap</a>.</p>
+
       <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://api.arithmophile.com" data-text="API for Avocational Arithmophiles" data-via="retorick">Tweet</a>
       <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 <fb:like href="http://api.arithmophile.com" send="true" width="200" show_faces="false"></fb:like>

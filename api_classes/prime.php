@@ -1,5 +1,5 @@
 <?php
-require 'output.php';
+require 'classes/output.php';
 
 class Prime extends Output {
     public function __construct()

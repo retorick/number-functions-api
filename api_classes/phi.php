@@ -1,5 +1,5 @@
 <?php
-require 'output.php';
+require 'classes/output.php';
 
 class Phi extends Output {
     private $_phi;

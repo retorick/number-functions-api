@@ -1,6 +1,6 @@
 <?php
 require 'classes/decimalcalc.php';
-require 'output.php';
+require 'classes/output.php';
 
 class DecimalData extends Output {
 
@@ -19,13 +19,8 @@ class DecimalData extends Output {
                 );
         }
         $this->_data = $data;
-    }
-
-    public function output()
-    {
-        global $app;
-
-        $app->render('decimal.html', array_merge(array('title' => 'Decimal Calculator'), $this->_data));
+        $this->_title = 'Decimal Calculator';
+        $this->_template = 'decimal.html';
     }
 }
 ?>

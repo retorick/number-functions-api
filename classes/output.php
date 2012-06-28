@@ -4,6 +4,7 @@ class Output {
     protected $_data;
     protected $_title;
     protected $_template;
+    private $_host;
 
     public function __construct()
     {
@@ -13,8 +14,8 @@ class Output {
 
     public function output()
     {
-        $host = $_SERVER['HTTP_HOST'];
-        $outmode = substr($host, 0, strpos($host, '.'));
+        $this->_host = $_SERVER['HTTP_HOST'];
+        $outmode = substr($this->_host, 0, strpos($this->_host, '.'));
 
         switch ($outmode) {
             case 'json':
@@ -28,7 +29,7 @@ class Output {
     private function _output_json()
     {
         $output = json_encode($this->_data);
-        $callback = $_GET['callback'];
+        $callback = isset($_GET['callback']) ? $_GET['callback'] : 'arithmophile';
         print $callback . "($output)";
     }
 
