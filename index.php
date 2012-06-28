@@ -8,7 +8,7 @@ $app = new Slim(array(
     'view' => new TwigView()
     ));
 
-$app->get('/', function() use ($app) { $app->redirect('/intro.php'); } );
+$app->get('/',                  '\ArithmophileAPI\intro');
 
 // Decimal Calculator
 $app->get('/dc/:denom(/:num)',  '\ArithmophileAPI\dc_denom_num')    ->conditions(array('denom' => '\d+', 'num' => '\d+'));

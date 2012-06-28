@@ -1,6 +1,17 @@
 <?php
 namespace ArithmophileAPI;
 
+function intro()
+{
+    global $app;
+    try {
+        $app->render('intro.html');
+    }
+    catch (\Exception $e) {
+    }
+}
+
+
 function dc_denom_num($denom, $num = null)
 {
     try {
