@@ -19,6 +19,7 @@
   <style type="text/css">
     body { margin-top:20px; }
     h1 { text-shadow:1px 1px 2px gray; }
+    .api-data td:first-child:not(:last-child) { font-family:courier new; }
     .header-image {
         height:100px;
         width:100px;
@@ -40,8 +41,13 @@
         content: 'Description: ';
         font-weight:bold;
     }
-    td.examples {
-        border-bottom:3px solid #9d261d;
+    div.examples {
+        border-bottom:1px solid #3a87ad;
+        margin-bottom:20px;
+    }
+    div.examples:last-child {
+        border-bottom:none;
+        margin-bottom:0;
     }
   </style>
 </head>
@@ -74,10 +80,27 @@
           <div class="accordion-heading">
             <a href="#fn-dc" class="accordion-toggle" data-parent="#api-functions" data-toggle="collapse">Decimal Calculator</a>
           </div>
-          <div id="fn-dc" class="accordion-body collapse">
+          <div id="fn-dc" class="accordion-body collapse in">
             <div class="accordion-inner">
               <p class="usage">http://api.arithmophile.com/dc/[denominator](/[numerator])</p>
               <p class="desc">Specify denominator and optional numerator</p>
+              <table class="api-data table table-striped">
+                <tr>
+                  <td colspan="2">Sequential array of decimal data for each fraction having the specified [denominator].  If the optional [numerator] is specified, the array will contain a single element.  Each element in the array contains:</td>
+                </tr><tr>
+                  <td>fraction</td>
+                  <td>The current fraction, written out as "[numerator] / [denominator]".  If the fraction can be simplified, the simplified form is also provided.</td>
+                </tr><tr>
+                  <td>decimal</td>
+                  <td>The decimal expansion of the fraction.</td>
+                </tr><tr>
+                  <td>length</td>
+                  <td>The length of the decimal expansion.</td>
+                </tr><tr>
+                  <td>repeating</td>
+                  <td>The number of digits in the decimal expansion that repeat, if any.</td>
+                </tr>
+              </table>
               <div class="examples">
                 <span class="label label-info">Examples</span>
                 <ul>
@@ -98,6 +121,14 @@
             <div class="accordion-inner">
               <p class="usage">http://api.arithmophile.com/tri/upto/[nth]</p>
               <p class="desc">List the triangular numbers, up to the nth.  (e.g., If nth is 3, list includes 1, 3, 6.)</p>
+              <table class="api-data table table-striped">
+                <tr>
+                  <td colspan="2">Associative array of triangular numbers, with each key being the ordinal position of the triangular number.</td>
+                </tr><tr>
+                  <td>[n]</td>
+                  <td>The nth triangular number</td>
+                </tr>
+              </table>
               <div class="examples">
                 <span class="label label-info">Examples</span>
                 <ul>
@@ -105,8 +136,16 @@
                 </ul>
               </div>
 
-              <p class="usage">http://api.arithmophile.com/tri/[from nth]/[to nth]</p>
+              <p class="usage">http://api.arithmophile.com/tri/[from_nth]/[to_nth]</p>
               <p class="desc">List the triangular numbers within the specified range.</p>
+              <table class="api-data table table-striped">
+                <tr>
+                  <td colspan="2">Associative array of triangular numbers, with each key being the ordinal position of the triangular number.</td>
+                </tr><tr>
+                  <td>[n]</td>
+                  <td>The nth triangular number</td>
+                </tr>
+              </table>
               <div class="examples">
                 <span class="label label-info">Examples</span>
                 <ul>
@@ -114,8 +153,20 @@
                 </ul>
               </div>
 
-              <p class="usage">http://api.arithmophile.com/tri/test/[number]</p>
+              <p class="usage">http://api.arithmophile.com/tri/test/[n]</p>
               <p class="desc">Check the specified number to determine whether it is triangular.</p>
+              <table class="api-data table table-striped">
+                <tr>
+                  <td>number</td>
+                  <td>The number being tested for triangularity.</td>
+                </tr><tr>
+                  <td>is_triangular</td>
+                  <td>"Yes" or "No", depending on whether [n] is triangular or not.</td>
+                </tr><tr>
+                  <td>nth_triangular_number</td>
+                  <td>The ordinal position in the series of triangular numbers.  (Provided only if [n] is a triangular number.)</td>
+                </tr>
+              </table>
               <div class="examples">
                 <span class="label label-info">Examples</span>
                 <ul>
@@ -135,8 +186,17 @@
           </div>
           <div id="fn-phi" class="accordion-body collapse">
             <div class="accordion-inner">
-              <p class="usage">http://api.arithmophile.com/phi/[number of digits]</p>
+              <p class="usage">http://api.arithmophile.com/phi/[n]</p>
               <p class="desc">Returns the number phi, to the specified number of places after the decimal.</p>
+              <table class="api-data table table-striped">
+                <tr>
+                  <td>digits</td>
+                  <td>The number of phi digits returned.</td>
+                </tr><tr>
+                  <td>phi_digits</td>
+                  <td>The first [n] digits to the right of the decimal of phi.  These are grouped in space-delimited clusters of 10 digits each.</td>
+                </tr>
+              </table>
               <div class="examples">
                 <span class="label label-info">Examples</span>
                 <ul>
@@ -146,6 +206,29 @@
 
               <p class="usage">http://api.arithmophile.com/phi/powers(/[maximum power])</p>
               <p class="desc">Returns the powers of phi, up to the indicated maximum.</p>
+              <table class="api-data table table-striped">
+                <tr>
+                  <td colspan="2">Sequential array, each row of which contains:</td>
+                </tr><tr>
+                  <td>power</td>
+                  <td>Power of phi for current row</td>
+                </tr><tr>
+                  <td>phi_num</td>
+                  <td>Value of phi to [power], expressed as a fraction, with denominator of 2.  (This is by design, even though it means that, for powers divisible by 3, the fraction could be further simplified.)</td>
+                </tr><tr>
+                  <td>real_value</td>
+                  <td>Value of phi to [power], expressed as a real number approximation.</td>
+                </tr><tr>
+                  <td>sqrt_5</td>
+                  <td>The number multiplied by the square root of 5 in this power of phi, and with a denominator of 2.</td>
+                </tr><tr>
+                  <td>whole</td>
+                  <td>The integer portion of this power of phi, given a denominator of 2.</td>
+                </tr><tr>
+                  <td>denom</td>
+                  <td>The denominator of this power of phi.  Currently, this is always 2.</td>
+                </tr>
+              </table>
               <div class="examples">
                 <span class="label label-info">Examples</span>
                 <ul>
@@ -165,6 +248,15 @@
             <div class="accordion-inner">
               <p class="usage">http://api.arithmophile.com/p/upto/[maximum]</p>
               <p class="desc">Returns a list of the prime numbers less than or equal to specified maximum.</p>
+              <table class="api-data table table-striped">
+                <tr>
+                  <td>primes_listed</td>
+                  <td>How many prime numbers there are between 1 and [maximum]</td>
+                </tr><tr>
+                  <td>prime_numbers</td>
+                  <td>Associative array containing the prime numbers from 1 to [maximum].  Key is the ordinal position of the prime number.</td>
+                </tr>
+              </table>
               <div class="examples">
                 <span class="label label-info">Examples</span>
                 <ul>
@@ -172,8 +264,17 @@
                 </ul>
               </div>
 
-              <p class="usage">http://api.arithmophile.com/p/[between a]/[and b]</p>
-              <p class="desc">Returns a list of the prime numbers between the two specified.</p>
+              <p class="usage">http://api.arithmophile.com/p/[a]/[b]</p>
+              <p class="desc">Returns a list of the prime numbers between the specified integers.</p>
+              <table class="api-data table table-striped">
+                <tr>
+                  <td>primes_listed</td>
+                  <td>How many prime numbers there are between [a] and [b]</td>
+                </tr><tr>
+                  <td>prime_numbers</td>
+                  <td>Associative array containing the prime numbers from [a] to [b].  Key is the absolute ordinal position of the prime number; e.g., the key for 101 would always be 26, since 101 is the 26th prime number.</td>
+                </tr>
+              </table>
               <div class="examples">
                 <span class="label label-info">Examples</span>
                 <ul>
@@ -183,10 +284,19 @@
 
               <p class="usage">http://api.arithmophile.com/p/[number]</p>
               <p class="desc">Indicate whether the number is prime.  Return its factors if composite.</p>
+              <table class="api-data table table-striped">
+                <tr>
+                  <td>number</td>
+                  <td>The number that was tested for primeness.</td>
+                </tr><tr>
+                  <td>prime_factors</td>
+                  <td>Sequential array containing the unique prime factors of [number].</td>
+                </tr>
+              </table>
               <div class="examples">
                 <span class="label label-info">Examples</span>
                 <ul>
-                  <li><a href="/p/5">http://api.arithmophile.com/p/10</a> <span class="explanation">Returns 2 and 5 as the prime factors of 10.</span></li>
+                  <li><a href="/p/10">http://api.arithmophile.com/p/10</a> <span class="explanation">Returns 2 and 5 as the prime factors of 10.</span></li>
                   <li><a href="/p/5">http://api.arithmophile.com/p/5</a> <span class="explanation">Indicates that 5 is a prime number.</span></li>
                 </ul>
               </div>

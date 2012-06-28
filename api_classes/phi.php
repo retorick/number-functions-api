@@ -36,7 +36,7 @@ class Phi extends Output {
         for ($p = 0; $p <= $power; $p++) {
             $data[$p] = $this->_get_phi_power($p);
         }
-        $this->_data['phi_powers'] = $data;
+        $this->_data = $data;
         $this->_title = 'Powers of Phi';
         $this->_template = 'phi_powers.html';
     }

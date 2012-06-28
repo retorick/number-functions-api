@@ -1,14 +1,14 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-<p>Number of primes in list: {{ primes_listed }}</p>
+<p>Number of primes in list: {{ data.primes_listed }}</p>
 
 <table class="table table-striped">
   <tr>
     <th><em>n</em></th>
     <th>nth Prime number</th>
   </tr>
-{% for key, prime in prime_numbers %}
+{% for key, prime in data.prime_numbers %}
   <tr>
     <td>{{ key }}</td>
     <td>{{ prime }}</td>

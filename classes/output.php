@@ -14,6 +14,7 @@ class Output {
 
     public function output()
     {
+$this->_debug = true;
         $this->_host = $_SERVER['HTTP_HOST'];
         $outmode = substr($this->_host, 0, strpos($this->_host, '.'));
 
@@ -36,13 +37,13 @@ class Output {
     private function _output_default()
     {
         global $app;
-        $output = array_merge(array('title' => $this->_title), $this->_data);
+        $output = array_merge(array('title' => $this->_title, 'data' => $this->_data));
         
         if ($this->_template) {
             $app->render($this->_template, $output);
             if ($this->_debug) {
                 print '<pre>';
-                print_r($output);
+                print_r($this->_data);
                 print '</pre>';
             }
         }

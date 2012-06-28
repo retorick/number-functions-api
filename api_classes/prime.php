@@ -18,16 +18,10 @@ class Prime extends Output {
     public function isPrime($n)
     {
         $factors = $this->_factor($n);
-        if (empty($factors)) {
-            $data = array(
-                'factors' => "None; $n is a prime number."
-            );
-        }
-        else {
-            $data = array(
-                'prime_factors' => $factors,
-            );
-        }
+        $data = array(
+            'number' => $n,
+            'prime_factors' => $factors,
+        );
         $this->_title = 'Prime Factors';
         $this->_template = 'is_prime.html';
         $this->_data = $data;

@@ -11,7 +11,7 @@ class DecimalData extends Output {
         $decObj = new DecimalCollection($denom, $num, 10);
         $data = array();
         foreach ($decObj->fraction as $fraction) {
-            $data['decimal_table'][] = array(
+            $data[] = array(
                     'fraction' => $fraction->fraction,
                     'decimal' => $fraction->period,
                     'length' => $fraction->period_length,

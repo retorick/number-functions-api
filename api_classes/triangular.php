@@ -52,7 +52,7 @@ class Triangular extends Output {
     {
         $tri = array();
         for ($i = $from; $i <= $to; $i++) {
-            $tri['triangular_list'][$i] = $this->_nth_triangular($i);
+            $tri[$i] = $this->_nth_triangular($i);
         }
         $this->_template = 'triangular_range.html';
         $this->_data = $tri;
