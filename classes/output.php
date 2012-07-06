@@ -14,7 +14,7 @@ class Output {
 
     public function output()
     {
-$this->_debug = true;
+        $this->_debug = true;
         $this->_host = $_SERVER['HTTP_HOST'];
         $outmode = substr($this->_host, 0, strpos($this->_host, '.'));
 
@@ -31,7 +31,7 @@ $this->_debug = true;
     {
         $output = json_encode($this->_data);
         $callback = isset($_GET['callback']) ? $_GET['callback'] : 'arithmophile';
-        print $callback . "($output)";
+        print $callback . "($output); console.log(this);";
     }
 
     private function _output_default()

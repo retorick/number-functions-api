@@ -1,6 +1,12 @@
 <?php
+/**
+ * Namespace to bind together the functions used by the API.
+ */
 namespace ArithmophileAPI;
 
+/**
+ * Displays the API introductory page.
+ */
 function intro()
 {
     global $app;
@@ -12,6 +18,12 @@ function intro()
 }
 
 
+/**
+ * Output the data pertaining to the specified denominator and optional numerator.
+ *
+ * @param $denom int Denominator of fraction
+ * @param $num int Optional numerator of fraction.  If omitted, all numerators are included in output data.
+ */
 function dc_denom_num($denom, $num = null)
 {
     try {
@@ -29,6 +41,13 @@ function dc_denom_num($denom, $num = null)
     }
 }
 
+/**
+ * Output the triangular numbers from position 1 to the specified position.
+ *
+ * @param $max int Position of last trianguar number to include in output
+ *
+ * @example If $max == 5, output will be the first five triangular numbers: 1, 3, 6, 10, 15
+ */
 function tri_upto($max) 
 {
     try {
@@ -42,6 +61,12 @@ function tri_upto($max)
     }
 }
 
+/**
+ * Ouput the trianguar numbers between the specified positions.
+ *
+ * @param $from int Position at which to begin output
+ * @param $to int Position at which to end output
+ */
 function tri_from_to($from, $to) 
 {
     try {
@@ -54,6 +79,11 @@ function tri_from_to($from, $to)
     }
 }
 
+/**
+ * Output whether a given number is triangular; and, if so, what its position is.
+ *
+ * @param $n int Number to test for triangularity
+ */
 function tri_test($n) {
     try {
         require 'api_classes/triangular.php';
@@ -67,6 +97,11 @@ function tri_test($n) {
     }
 }
 
+/**
+ * Output the triangular numbers that are also square, up to a specified position.
+ *
+ * @param $max int Maximum position to check for triangular numbers that are also square.
+ */
 function tri_square_upto($max) 
 {
     try {
@@ -79,6 +114,12 @@ function tri_square_upto($max)
     }
 }
 
+/**
+ * Output the specified number of digits of the number phi (aka the Golden Ratio).
+ * This number starts 1.618...
+ *
+ * @param $digits int Number of digits to output.
+ */
 function phi_digits($digits) 
 {
     try {
@@ -91,6 +132,12 @@ function phi_digits($digits)
     }
 }
 
+/**
+ * Output powers of phi, from exponent 0 to the exponent specified.
+ * The output is provided in two forms:  (n*sqrt(5) + m) / 2, and as a real number approximation.
+ *
+ * @param $max int Maximum exponent to output.  For some reason, this only goes up to 19.  Will need to investigate.
+ */
 function phi_powers($max = 5) 
 {
     try {
@@ -103,6 +150,12 @@ function phi_powers($max = 5)
     }
 }
 
+/**
+ * Output primes less than or equal to the specified value.
+ *
+ * @param $max int Ceiling for prime number output.  Current maximum prime number is 7919.
+ *
+ */
 function primes_upto($max) 
 {
     try {
@@ -115,6 +168,13 @@ function primes_upto($max)
     }
 }
 
+/**
+ * Output prime numbers within a specified range.
+ *
+ * @param $from int Number at which to begin checking for primes
+ * @param $to int Number at which to stop checking for primes
+ * @param $debug Boolean
+ */
 function primes_from_to($from, $to, $debug = null) 
 {
     try {
@@ -127,6 +187,11 @@ function primes_from_to($from, $to, $debug = null)
     }
 }
 
+/**
+ * Output whether a number is prime; and, if not, its unique factors.
+ *
+ * @param $n int Number to check for primeness
+ */
 function prime_check($n) 
 {
     try {
