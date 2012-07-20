@@ -5,4 +5,3 @@ Decimal calculator
 Prime number utilities
 Phi calculator
 Triangular numbers
-&c.
