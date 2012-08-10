@@ -86,6 +86,9 @@ class Triangular extends Output {
         return $nth;
     }
 
+    /*
+     * private method _hunt_triangular_squares: 
+     */
     private function _hunt_triangular_squares($nth)
     {
         $ts_array = array();

@@ -9,7 +9,7 @@ $pascal = array(
     array(1, 6, 15, 20, 15, 6, 1),
 );
 
-function build_triangle($rows = 20) 
+function build_triangle($rows = 50) 
 {
     $pascal = array(
         array(1)
@@ -17,7 +17,7 @@ function build_triangle($rows = 20)
 
     $i = sizeof($pascal);
 
-    while ($i < $rows) {
+    while ($i <= $rows) {
         $prev_row = $pascal[$i - 1];
         $new_row = array();
         $new_row[] = 1;

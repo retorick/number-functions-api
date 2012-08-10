@@ -136,9 +136,9 @@ function phi_digits($digits)
  * Output powers of phi, from exponent 0 to the exponent specified.
  * The output is provided in two forms:  (n*sqrt(5) + m) / 2, and as a real number approximation.
  *
- * @param $max int Maximum exponent to output.  For some reason, this only goes up to 19.  Will need to investigate.
+ * @param $max int Maximum exponent to output.
  */
-function phi_powers($max = 5) 
+function phi_powers($max = 10) 
 {
     try {
         require 'api_classes/phi.php';

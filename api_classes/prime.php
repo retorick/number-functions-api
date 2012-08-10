@@ -27,12 +27,22 @@ class Prime extends Output {
         $this->_data = $data;
     }
 
+    /*
+     * private method _factor:  compute and return an array of prime factors for 
+     *    the specified value.
+     *
+     * This takes the approach of testing each prime number from 2 to the largest
+     * prime number less than or equal to half of the specified value to determine
+     * whether that prime number is a factor.
+     *
+     * The _primes array only goes up to 7919 currently, so this is rather limited.
+     */
     private function _factor($n)
     {
         $factors = array();
         $pndx = 0;
         $max_prime = floor($n / 2);
-        while ($this->_primes[$pndx] <= $max_prime) {
+        while ($this->_primes[$pndx] && $this->_primes[$pndx] <= $max_prime) {
             if ($n % $this->_primes[$pndx] == 0) {
                 $factors[] = $this->_primes[$pndx];
             }
